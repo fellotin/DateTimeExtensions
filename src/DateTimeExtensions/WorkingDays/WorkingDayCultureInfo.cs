@@ -35,7 +35,7 @@ namespace DateTimeExtensions.WorkingDays
         private IWorkingDayOfWeekStrategy workingDayOfWeekStrategy;
         private IHolidayStrategy holidayStrategy;
 
-        public WorkingDayCultureInfo() : this(CultureInfo.CurrentCulture.Name, null)
+        public WorkingDayCultureInfo() : this(CultureInfo.CurrentCulture.Name)
         {
         }
 
@@ -76,10 +76,9 @@ namespace DateTimeExtensions.WorkingDays
             return this.holidayStrategy.GetHolidaysOfYear(year);
         }
 
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name => name;
+
+        public string Region => region;
 
         private Func<string, string, IWorkingDayOfWeekStrategy> locateWorkingDayOfWeekStrategy;
 
